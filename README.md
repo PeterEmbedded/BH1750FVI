@@ -1,2 +1,2 @@
-# BH1750
+# BH1750FVI
 Digital Light Sensor
