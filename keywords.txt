@@ -1,0 +1,18 @@
+#######################################
+# Syntax Coloring Map BH1750FVI
+#######################################
+
+#######################################
+# Datatypes (KEYWORD1)
+#######################################
+
+BH1750FVI	KEYWORD1	BH1750FVI
+
+#######################################
+# Methods and Functions (KEYWORD2)
+#######################################
+begin	KEYWORD2
+GetLightIntensity	KEYWORD2
+SetMode	KEYWORD2
+Sleep	KEYWORD2
+Reset	KEYWORD2
