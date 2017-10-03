@@ -40,32 +40,32 @@ class BH1750FVI {
 
   public:
 
- 	  typedef enum eDeviceAddress {
-  		k_DevAddress_L = 0x23,
-  		k_DevAddress_H = 0x5C
-	  } eDeviceAddress_t;
+    typedef enum eDeviceAddress {
+        k_DevAddress_L = 0x23,
+  	k_DevAddress_H = 0x5C
+    } eDeviceAddress_t;
 
-  	typedef enum eDeviceMode {
-  	  k_DevModeContHighRes     	 = 0x10,
-  		k_DevModeContHighRes2    = 0x11,
-  		k_DevModeContLowRes      = 0x13,
-  		k_DevModeOneTimeHighRes  = 0x20,
-  		k_DevModeOneTimeHighRes2 = 0x21,
-  		k_DevModeOneTimeLowRes   = 0x23
-	  } eDeviceMode_t;
+    typedef enum eDeviceMode {
+        k_DevModeContHighRes     = 0x10,
+  	k_DevModeContHighRes2    = 0x11,
+  	k_DevModeContLowRes      = 0x13,
+  	k_DevModeOneTimeHighRes  = 0x20,
+  	k_DevModeOneTimeHighRes2 = 0x21,
+  	k_DevModeOneTimeLowRes   = 0x23
+    } eDeviceMode_t;
 
-	  typedef enum eDeviceState {
-	    k_DevStatePowerDown = 0x00,
-  		k_DevStatePowerUp   = 0x01,
-  		k_DevStateReset     = 0x07
-	  } eDeviceState_t;
+    typedef enum eDeviceState {
+        k_DevStatePowerDown = 0x00,
+  	k_DevStatePowerUp   = 0x01,
+  	k_DevStateReset     = 0x07
+    } eDeviceState_t;
 	
-  	/*
-  	* Constructor
+    /*
+    * Constructor
     * @param AddressPin, 
     * @param DeviceAddress, 
-    * @param DeviceMode, 
-  	*/
+    * @param DeviceMode,
+    */
     BH1750FVI(uint8_t AddressPin, eDeviceAddress_t DeviceAddress, eDeviceMode_t DeviceMode);
     
     /*
