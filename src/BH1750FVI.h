@@ -81,17 +81,18 @@ class BH1750FVI {
     uint16_t GetLightIntensity(void);
     
     /*
-     * TODO
+     * Set the mode
+     * @param DeviceMode, the mode to set the device in
      */
     void SetMode(eDeviceMode_t DeviceMode);
 
     /*
-     * TODO
+     * Activate sleep mode
      */
     void Sleep(void); 
     
     /*
-     * TODO
+     * Reset the device
      */
     void Reset(void);
 
@@ -110,9 +111,9 @@ class BH1750FVI {
        */
       void I2CWrite(uint8_t Data);  
 
-      uint8_t m_AddressPin;               //!< TODO
-      eDeviceAddress_t m_DeviceAddress;   //!< TODO
-      eDeviceMode_t m_DeviceMode;         //!< TODO
+      uint8_t m_AddressPin;               //!< Addresspin number the sensor is connected to
+      eDeviceAddress_t m_DeviceAddress;   //!< I2C address of the device
+      eDeviceMode_t m_DeviceMode;         //!< Mode of the device
 };
 
 #endif
