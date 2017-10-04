@@ -35,21 +35,21 @@ BH1750FVI::BH1750FVI(uint8_t AddressPin, eDeviceAddress_t DeviceAddress, eDevice
 void BH1750FVI::begin(void)
 {
   Wire.begin(); 
-  I2CWrite(k_DevStatePowerUp);	//Turn it On 
-  pinMode(m_AddressPin, OUTPUT);
-  digitalWrite(m_AddressPin, HIGH);
-  SetAddress(m_DeviceAddress);
-  SetMode(m_DeviceMode);
+  I2CWrite(k_DevStatePowerUp);      // Turn it On 
+  pinMode(m_AddressPin, OUTPUT);    // Set the correct pinmode
+  digitalWrite(m_AddressPin, HIGH); // Address to high
+  SetAddress(m_DeviceAddress);      // Set the address
+  SetMode(m_DeviceMode);            // Set the mode
 }
   
 void BH1750FVI::Sleep(void)
 {
-  I2CWrite(k_DevStatePowerDown); //Turn it off
+  I2CWrite(k_DevStatePowerDown); // Turn it off
 }
 
 void BH1750FVI::Reset(void)
 {
-  I2CWrite(k_DevStatePowerUp);  // Turn it on again
+  I2CWrite(k_DevStatePowerUp);  // Turn it on before we can reset it
   I2CWrite(k_DevStateReset );   // Reset
 }
 
@@ -78,7 +78,7 @@ void BH1750FVI::SetMode(eDeviceMode_t DeviceMode)
 
 uint16_t BH1750FVI::GetLightIntensity(void)
 {
-  uint16_t Value;
+  uint16_t Value = 0;
   
   Wire.beginTransmission(m_DeviceAddress);
   Wire.requestFrom(m_DeviceAddress, 2);
