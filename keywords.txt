@@ -6,7 +6,7 @@
 # Datatypes (KEYWORD1)
 #######################################
 
-BH1750FVI	KEYWORD1	BH1750FVI
+BH1750FVI	KEYWORD1
 
 #######################################
 # Methods and Functions (KEYWORD2)
