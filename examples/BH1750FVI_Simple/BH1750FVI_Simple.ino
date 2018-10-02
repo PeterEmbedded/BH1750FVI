@@ -1,12 +1,12 @@
 /*
   This is a simple example to test the BH1750 Light sensor
   
-  Connect the sensor to a NodeMCU ESP8266 as follows:
-  VCC  <-> 3V3 grijs
-  GND  <-> Gnd paars
-  SDA  <-> D2  groen
-  SCL  <-> D1  blauw
-  ADDR <-> RX  geel
+  Connect the sensor to a NodeMCU ESP8266:
+  VCC  <-> 3V3 [grey]
+  GND  <-> Gnd [purple]
+  SDA  <-> D2  [green]
+  SCL  <-> D1  [blue]
+  ADDR <-> RX  [yellow]
  */
 
 #include <Wire.h>
