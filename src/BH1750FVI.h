@@ -62,9 +62,9 @@ class BH1750FVI {
 	
     /*
     * Constructor
-    * @param AddressPin, 
-    * @param DeviceAddress, 
-    * @param DeviceMode,
+    * @param AddressPin, pin number the device is attached to
+    * @param DeviceAddress, I2C address of the device (High or Low)
+    * @param DeviceMode, the mode to set the device in
     */
     BH1750FVI(uint8_t AddressPin, eDeviceAddress_t DeviceAddress, eDeviceMode_t DeviceMode);
     
@@ -111,7 +111,7 @@ class BH1750FVI {
        */
       void I2CWrite(uint8_t Data);  
 
-      uint8_t m_AddressPin;               //!< Addresspin number the sensor is connected to
+      uint8_t m_AddressPin;               //!< Addresspin number the device is connected to
       eDeviceAddress_t m_DeviceAddress;   //!< I2C address of the device
       eDeviceMode_t m_DeviceMode;         //!< Mode of the device
 };
