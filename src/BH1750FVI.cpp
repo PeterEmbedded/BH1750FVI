@@ -25,20 +25,30 @@
 #include "BH1750FVI.h"
 #include "Arduino.h"
 
+BH1750FVI::BH1750FVI(eDeviceMode_t DeviceMode) :
+  m_DeviceMode(DeviceMode)
+{
+  m_AddressPinUsed = false;
+  m_DeviceAddress = k_DevAddress_L;
+}
+
 BH1750FVI::BH1750FVI(uint8_t AddressPin, eDeviceAddress_t DeviceAddress, eDeviceMode_t DeviceMode) :
   m_AddressPin(AddressPin),
   m_DeviceAddress(DeviceAddress),
   m_DeviceMode(DeviceMode)
-{ 
+{
+  m_AddressPinUsed = true;
 }
 
 void BH1750FVI::begin(void)
 {
   Wire.begin(); 
   I2CWrite(k_DevStatePowerUp);      // Turn it On 
-  pinMode(m_AddressPin, OUTPUT);    // Set the correct pinmode
-  digitalWrite(m_AddressPin, HIGH); // Address to high
-  SetAddress(m_DeviceAddress);      // Set the address
+  if (m_AddressPinUsed) {
+    pinMode(m_AddressPin, OUTPUT);    // Set the correct pinmode
+    digitalWrite(m_AddressPin, HIGH); // Address to high
+    SetAddress(m_DeviceAddress);      // Set the address
+  }
   SetMode(m_DeviceMode);            // Set the mode
 }
   
@@ -55,17 +65,19 @@ void BH1750FVI::Reset(void)
 
 void BH1750FVI::SetAddress(eDeviceAddress_t DeviceAddress)
 {
-  m_DeviceAddress = DeviceAddress;
-  switch (m_DeviceAddress) {
-    case k_DevAddress_L:
-      digitalWrite(m_AddressPin, LOW);
-      break;
-    case k_DevAddress_H:
-      digitalWrite(m_AddressPin, HIGH);
-      break;
-    default:
-      digitalWrite(m_AddressPin, HIGH);
-      break;
+  if (m_AddressPinUsed) {
+    m_DeviceAddress = DeviceAddress;
+    switch (m_DeviceAddress) {
+      case k_DevAddress_L:
+        digitalWrite(m_AddressPin, LOW);
+        break;
+      case k_DevAddress_H:
+        digitalWrite(m_AddressPin, HIGH);
+        break;
+      default:
+        digitalWrite(m_AddressPin, HIGH);
+        break;
+    }
   }
 }
 
