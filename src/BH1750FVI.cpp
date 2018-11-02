@@ -91,15 +91,12 @@ void BH1750FVI::SetMode(eDeviceMode_t DeviceMode)
 uint16_t BH1750FVI::GetLightIntensity(void)
 {
   uint16_t Value = 0;
-  
-  Wire.beginTransmission(m_DeviceAddress);
+
   Wire.requestFrom(m_DeviceAddress, 2);
-  
   Value = Wire.read();
   Value <<= 8;
   Value |= Wire.read();
-  Wire.endTransmission();
-  
+
   return Value / 1.2;
 }
 
