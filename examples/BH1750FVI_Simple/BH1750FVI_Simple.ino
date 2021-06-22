@@ -7,7 +7,7 @@
   SDA  <-> D2  [green]
   SCL  <-> D1  [blue]
   ADDR <-> RX  [yellow]
- */
+*/
 
 #include <Wire.h>
 #include <BH1750FVI.h>
